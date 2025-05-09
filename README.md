@@ -1,17 +1,17 @@
 # 🔁 Reverse Proxy with Docker (reverse-proxy-docker-project)
 
-This project sets up two separate Flask apps and routes traffic to them using a single NGINX reverse proxy. It’s built entirely with Docker and Docker Compose to simulate a basic microservices setup where different services are accessible via different URL paths under the same domain.
+I built this project to understand how NGINX works as a reverse proxy when managing multiple apps in a Docker environment. I wanted to simulate how microservices might be structured, and practise routing traffic to different apps running in separate containers — all under one local domain.
 
 ---
 
-## ✅ What This Project Covers
+## ✅ What I Practised
 
-- Created two minimal Flask apps with individual Dockerfiles
-- Set up a reverse proxy using NGINX
-- Used `default.conf` to configure NGINX routing rules
-- Orchestrated everything using Docker Compose
-- Exposed both apps on different paths via `localhost`
-- Practised container linking and path-based routing
+- Containerised two separate Flask apps using Docker
+- Gave each app its own Dockerfile and requirements
+- Set up an NGINX reverse proxy with a custom `default.conf` file
+- Used Docker Compose to manage everything at once
+- Routed traffic based on path — e.g. `/app1` and `/app2`
+- Confirmed both apps responded through a single NGINX entry point
 
 ---
 
@@ -30,28 +30,49 @@ reverse-proxy-docker-project/
 │   └── default.conf
 └── docker-compose.yml
 
-## 1. Clone and navigate into the project
+## 🧠 Why I Did It
+
+I wanted to get more comfortable with how services talk to each other in Docker and how traffic is managed with reverse proxies like NGINX. This kind of pattern is common in production, especially in microservices or containerised environments.
+
+Instead of just spinning up a bunch of apps, I wanted to learn how routing actually works behind the scenes — and this helped massively.
+
+---
+
+## 🧪 Running It Locally
+
+I ran everything with Docker Compose like this
 
 ---
 
 ```bash
-git clone https://github.com/your-username/reverse-proxy-docker-project.git
-cd reverse-proxy-docker-project
-
-## 2. Build and start all services
-
 docker-compose up --build -d
+```
 
-## 3. Access the apps
+Then to test, I visited
 
-App 1 → http://localhost/app1
+http://localhost/app1 → response from App 1
 
-App 2 → http://localhost/app2
+http://localhost/app2 → response from App 2
 
-Each route is handled by the NGINX reverse proxy and forwarded to the correct Flask app running in its own container.
-
+It was satisfying to see NGINX route both correctly. 
 
 ## Output
 
 http://localhost/app1 → Hello from App 1!
 http://localhost/app2 → Hello from App 2!
+
+## 🗂️ Folder Structure
+
+reverse-proxy-docker-project/
+├── app1/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── app2/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── nginx/
+│   └── default.conf
+└── docker-compose.yml
+
