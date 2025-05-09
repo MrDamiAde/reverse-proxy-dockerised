@@ -29,6 +29,7 @@ reverse-proxy-docker-project/
 ├── nginx/
 │   └── default.conf
 └── docker-compose.yml
+
 ## 1. Clone and navigate into the project
 
 ---
