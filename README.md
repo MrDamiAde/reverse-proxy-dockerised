@@ -27,17 +27,18 @@ I ran everything with Docker Compose like this
 docker-compose up --build -d
 ```
 
-Then to test, I visited
+Then, to test, I visited
 
 http://localhost/app1 → response from App 1
 
 http://localhost/app2 → response from App 2
 
-It was satisfying to see NGINX route both correctly. 
+It was satisfying to see both NGINX routes correctly. 
 
 ## Output
 
 http://localhost/app1 → Hello from App 1!
+
 http://localhost/app2 → Hello from App 2!
 
 
