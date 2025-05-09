@@ -15,7 +15,23 @@ This project sets up two separate Flask apps and routes traffic to them using a 
 
 ---
 
+## 🗂️ Project Structure
+
+reverse-proxy-docker-project/
+├── app1/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── app2/
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+├── nginx/
+│   └── default.conf
+└── docker-compose.yml
 ## 1. Clone and navigate into the project
+
+---
 
 ```bash
 git clone https://github.com/your-username/reverse-proxy-docker-project.git
@@ -33,20 +49,6 @@ App 2 → http://localhost/app2
 
 Each route is handled by the NGINX reverse proxy and forwarded to the correct Flask app running in its own container.
 
-## 🗂️ Project Structure
-
-reverse-proxy-docker-project/
-├── app1/
-│   ├── app.py
-│   ├── Dockerfile
-│   └── requirements.txt
-├── app2/
-│   ├── app.py
-│   ├── Dockerfile
-│   └── requirements.txt
-├── nginx/
-│   └── default.conf
-└── docker-compose.yml
 
 ## Output
 
